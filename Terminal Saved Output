@@ -1,0 +1,120 @@
+Last login: Fri Jun 29 14:34:38 on console
+Johns-iMac:~ johnsmith$ ls
+Applications	Documents	Library		Music		Public
+Desktop		Downloads	Movies		Pictures
+Johns-iMac:~ johnsmith$ cd ..
+Johns-iMac:Users johnsmith$ ls
+Shared		johnsmith
+Johns-iMac:Users johnsmith$ cd johnsmith
+Johns-iMac:~ johnsmith$ ls
+Applications	Documents	Library		Music		Public
+Desktop		Downloads	Movies		Pictures
+Johns-iMac:~ johnsmith$ /Volumes/Data/Laravel/blog 
+-bash: /Volumes/Data/Laravel/blog: is a directory
+Johns-iMac:~ johnsmith$ cd ..
+Johns-iMac:Users johnsmith$ cd ..
+Johns-iMac:/ johnsmith$ cd ..
+Johns-iMac:/ johnsmith$ ls
+Applications			etc
+Library				home
+Network				installer.failurerequests
+System				net
+Users				private
+Volumes				sbin
+bin				tmp
+cores				usr
+dev				var
+Johns-iMac:/ johnsmith$ cd Bolumes
+-bash: cd: Bolumes: No such file or directory
+Johns-iMac:/ johnsmith$ cd Volumes
+Johns-iMac:Volumes johnsmith$ ls
+Data				Project
+Develop				mysql-5.7.19-macos10.12-x86_64
+Macintosh HD
+Johns-iMac:Volumes johnsmith$ cd data
+Johns-iMac:data johnsmith$ ls
+DATA			devtools		linkein
+Laravel			djangotutorials		music
+MonitoringService.app	facebook		mygirl.png
+New folder		jgs			other
+Johns-iMac:data johnsmith$ cd Laravel
+Johns-iMac:Laravel johnsmith$ ls
+blog
+Johns-iMac:Laravel johnsmith$ cd blog
+Johns-iMac:blog johnsmith$ ls
+app		composer.lock	phpunit.xml	routes		vendor
+artisan		config		public		server.php	webpack.mix.js
+bootstrap	database	readme.md	storage
+composer.json	package.json	resources	tests
+Johns-iMac:blog johnsmith$ php artisan make:auth
+Authentication scaffolding generated successfully.
+Johns-iMac:blog johnsmith$ php artisan migration
+
+                                       
+  Command "migration" is not defined.  
+                                       
+  Did you mean one of these?           
+      make:migration                   
+      migrate                          
+      migrate:install                  
+      migrate:refresh                  
+      migrate:reset                    
+      migrate:rollback                 
+      migrate:status                   
+                                       
+
+Johns-iMac:blog johnsmith$ php artisan migrate
+
+In Connection.php line 647:
+                                                                                                                   
+  SQLSTATE[HY000] [1049] Unknown database 'blog' (SQL: select * from information_schema.tables where table_schema  
+   = blog and table_name = migrations)                                                                             
+                                                                                                                   
+
+In Connector.php line 68:
+                                                  
+  SQLSTATE[HY000] [1049] Unknown database 'blog'  
+                                                  
+
+Johns-iMac:blog johnsmith$ php artisan migrate
+Migration table created successfully.
+
+In Connection.php line 647:
+                                                                                                                   
+  SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes  
+   (SQL: alter table `users` add unique `users_email_unique`(`email`))                                             
+                                                                                                                   
+
+In Connection.php line 449:
+                                                                                                                   
+  SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes  
+                                                                                                                   
+
+Johns-iMac:blog johnsmith$ clear
+
+Johns-iMac:blog johnsmith$ php artisan make:migration create_companies_table
+Created Migration: 2018_06_30_032157_create_companies_table
+Johns-iMac:blog johnsmith$ php artisan migrate
+
+In Connection.php line 647:
+                                                                                                                   
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'users' already exists (SQL: create table `users  
+  ` (`id` int unsigned not null auto_increment primary key, `name` varchar(255) not null, `email` varchar(255) no  
+  t null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `upd  
+  ated_at` timestamp null) default character set utf8mb4 collate utf8mb4_unicode_ci)                               
+                                                                                                                   
+
+In Connection.php line 449:
+                                                                                         
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'users' already exists  
+                                                                                         
+
+Johns-iMac:blog johnsmith$ php artisan make:migration create_projects_table
+Created Migration: 2018_06_30_033142_create_projects_table
+Johns-iMac:blog johnsmith$ php artisan make:migration create_tasks_table
+Created Migration: 2018_06_30_034327_create_tasks_table
+Johns-iMac:blog johnsmith$ php artisan make:migration create_comments_table
+Created Migration: 2018_06_30_034957_create_comments_table
+Johns-iMac:blog johnsmith$ php artisan make:migration create_roles_table
+
+
